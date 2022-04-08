@@ -1,0 +1,14 @@
+Fri Apr  8 11:44:02 HSP 2022: 
+ hashmap.c | 14 +++++++++++---
+ 1 file changed, 11 insertions(+), 3 deletions(-)
+In file included from test.c:4:0:
+hashmap.c: In function 'createMap':
+hashmap.c:59:24: error: assignment makes integer from pointer without a cast [-Werror=int-conversion]
+     nuevoMapa->current = NULL;
+                        ^
+hashmap.c:60:14: error: statement with no effect [-Werror=unused-value]
+     nuevoMapa->buckets;
+     ~~~~~~~~~^~~~~~~~~
+cc1.exe: all warnings being treated as errors
+Compilation failed
+3c020e0
