@@ -160,3 +160,9 @@ Fri Apr  8 18:03:00 HSP 2022:
  tests:  5|4
 total_score: 30/70
 5d74d6e
+Fri Apr  8 18:06:00 HSP 2022: 
+ hashmap.c | 16 ++++++++++++++++
+ 1 file changed, 16 insertions(+)
+ tests:  5|4
+total_score: 30/70
+a544ed7
