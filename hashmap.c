@@ -94,6 +94,7 @@ Pair * searchMap(HashMap * map,  char * key) {
     if (is_equal(map->buckets[hashBusqueda]->key, key))
     {
         resultadoBusqueda = map->buckets[hashBusqueda];
+        map->current = hashBusqueda;
     } else {
         while(1)
         {
@@ -101,13 +102,13 @@ Pair * searchMap(HashMap * map,  char * key) {
             if(is_equal(map->buckets[k]->key, key))
             {
                 resultadoBusqueda = map->buckets[k];
+                map->current = k;
                 break;
             }
             k++;
         }
     }
     
-
     return resultadoBusqueda;
 }
 
