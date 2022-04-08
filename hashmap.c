@@ -53,6 +53,16 @@ void insertMap(HashMap * map, char * key, void * value) {
         {
             while (1)
             {
+                if(map->buckets[k] != NULL)
+                {
+                    if(map->buckets[k]->key == NULL)
+                    {
+                        map->buckets[k] = insertPair;
+                        map->current = k;
+                        map->size++;
+                        return;
+                    }
+                }
                 if(map->buckets[k] == NULL)
                 {
                     map->buckets[k] = insertPair;
