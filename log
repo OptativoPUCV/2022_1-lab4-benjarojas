@@ -81,3 +81,8 @@ hashmap.c:72:5: error: expected ';' before 'if'
      ^~
 Compilation failed
 ea3ab11
+Fri Apr  8 12:02:57 HSP 2022: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+c9176fa
