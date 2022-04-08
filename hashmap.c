@@ -66,6 +66,7 @@ HashMap * createMap(long capacity) {
     nuevoMapa = (HashMap *) malloc(sizeof(HashMap));
 
     nuevoMapa->capacity = capacity;
+    nuevoMapa->size = 0;
 
     if(capacity == 0)
     {
