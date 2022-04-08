@@ -51,7 +51,8 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair *));
     } */
 
-    if(map->buckets[valorHash]->key != NULL)
+    /*
+    if(map->buckets[valorHash] != NULL)
     {
         if(is_equal(map->buckets[valorHash], insertPair))
         {
@@ -70,7 +71,7 @@ void insertMap(HashMap * map, char * key, void * value) {
             }
             return;
         }
-    }
+    } */
 
     map->current = valorHash;
     map->buckets[valorHash] = insertPair;
