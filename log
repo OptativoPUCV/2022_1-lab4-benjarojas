@@ -34,3 +34,9 @@ hashmap.c:59:28: error: 'nuevoMapa' may be used uninitialized in this function [
 cc1.exe: all warnings being treated as errors
 Compilation failed
 564f336
+Fri Apr  8 11:46:32 HSP 2022: 
+ hashmap.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+ tests:  0|6
+total_score: 0/70
+2382a7b
