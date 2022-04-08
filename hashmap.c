@@ -49,7 +49,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair *));
     }
 
-    if(is_equal(map->buckets[valorHash], insertPair->key))
+    if(is_equal(map->buckets[valorHash]->key, insertPair->key))
     {
         return;
     }
