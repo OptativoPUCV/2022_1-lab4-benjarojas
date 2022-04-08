@@ -57,7 +57,7 @@ HashMap * createMap(long capacity) {
     nuevoMapa = (HashMap *) malloc(sizeof(HashMap));
     nuevoMapa->capacity = capacity;
 
-    *nuevoMapa->buckets = (void *) malloc(capacity * sizeof (void *));
+    nuevoMapa->buckets = (void *) malloc(capacity * sizeof (void *));
 
     return nuevoMapa;
 }
