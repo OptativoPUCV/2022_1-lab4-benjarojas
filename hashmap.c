@@ -70,7 +70,7 @@ HashMap * createMap(long capacity) {
         return nuevoMapa;
     }
 
-    nuevoMapa->buckets = (Pair **) malloc(capacity * sizeof (Pair *));
+    nuevoMapa->buckets = (Pair **) calloc(capacity, sizeof (Pair *));
 
     return nuevoMapa;
 }
