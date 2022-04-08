@@ -71,3 +71,13 @@ Fri Apr  8 12:02:30 HSP 2022:
  1 file changed, 1 insertion(+)
  tests:  0|0
 0d5c44b
+Fri Apr  8 12:02:49 HSP 2022: 
+ hashmap.c | 1 +
+ 1 file changed, 1 insertion(+)
+In file included from test.c:4:0:
+hashmap.c: In function 'createMap':
+hashmap.c:72:5: error: expected ';' before 'if'
+     if(capacity == 0)
+     ^~
+Compilation failed
+ea3ab11

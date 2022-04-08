@@ -67,6 +67,7 @@ HashMap * createMap(long capacity) {
 
     nuevoMapa->capacity = capacity;
     nuevoMapa->size = 0;
+    nuevoMapa->current = 0
 
     if(capacity == 0)
     {
