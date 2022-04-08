@@ -59,7 +59,7 @@ void insertMap(HashMap * map, char * key, void * value) {
             long pos = valorHash + 1;
             while(1)
             {
-                if(map->buckets[valorHash] == NULL)
+               // if(map->buckets[valorHash] == NULL)
                 {
                     map->buckets[pos] = insertPair;
                     map->size++;
