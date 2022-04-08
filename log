@@ -55,3 +55,9 @@ Fri Apr  8 11:58:04 HSP 2022:
  1 file changed, 2 insertions(+), 1 deletion(-)
  tests:  0|0
 d2bcc30
+Fri Apr  8 12:00:43 HSP 2022: 
+ hashmap.c | 5 +++--
+ 1 file changed, 3 insertions(+), 2 deletions(-)
+ tests:  0|6
+total_score: 0/70
+c99241b
