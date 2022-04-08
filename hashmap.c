@@ -50,12 +50,12 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair *));
     }
 
-    if(map->buckets[valorHash] != NULL)
+    if(map->buckets[valorHash]->key != NULL)
     {
-        //if(is_equal(map->buckets[valorHash], insertPair))
+        if(is_equal(map->buckets[valorHash], insertPair))
         {
             return;
-       // } else {
+        } else {
             long pos = valorHash + 1;
             while(1)
             {
