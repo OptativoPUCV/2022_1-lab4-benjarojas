@@ -45,34 +45,6 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     Pair* insertPair = createPair(key, value);
 
-    /*
-    if(valorHash <= map->capacity)
-    {
-        map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair *));
-    } */
-
-    /*
-    if(map->buckets[valorHash] != NULL)
-    {
-        if(is_equal(map->buckets[valorHash], insertPair))
-        {
-            return;
-        } else {
-            long pos = valorHash + 1;
-            while(1)
-            {
-               if(map->buckets[valorHash] == NULL)
-                {
-                    map->buckets[pos] = insertPair;
-                    map->size++;
-                    break;
-                }
-                pos++;
-            }
-            return;
-        }
-    } */
-
     map->current = valorHash;
     map->buckets[valorHash] = insertPair;
     map->size++;
@@ -113,8 +85,30 @@ void eraseMap(HashMap * map,  char * key) {
 
 Pair * searchMap(HashMap * map,  char * key) {   
 
+    long hashBusqueda = hash(key, map->capacity);
 
-    return NULL;
+    long k = hashBusqueda + 1;
+
+    Pair * resultadoBusqueda = NULL;
+
+    if (is_equal(map->buckets[hashBusqueda]->key, key))
+    {
+        resultadoBusqueda = map->buckets[hashBusqueda];
+    } else {
+        while(1)
+        {
+            if(map->buckets[k] == NULL) break;
+            if(is_equal(map->buckets[k]->key, key))
+            {
+                resultadoBusqueda = map->buckets[k];
+                break;
+            }
+            k++;
+        }
+    }
+    
+
+    return resultadoBusqueda;
 }
 
 Pair * firstMap(HashMap * map) {
