@@ -23,3 +23,14 @@ Fri Apr  8 11:45:20 HSP 2022:
  tests:  0|6
 total_score: 0/70
 13e04e4
+Fri Apr  8 11:46:08 HSP 2022: 
+ hashmap.c | 6 ++++++
+ 1 file changed, 6 insertions(+)
+In file included from test.c:4:0:
+test.c: In function 'createMap':
+hashmap.c:59:28: error: 'nuevoMapa' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+         nuevoMapa->buckets = NULL;
+                            ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+564f336
