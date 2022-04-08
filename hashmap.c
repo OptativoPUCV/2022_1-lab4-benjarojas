@@ -49,6 +49,7 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->buckets = (Pair **) realloc(map->buckets, sizeof(Pair *));
     }
     map->buckets[valorHash] = insertPair;
+    map->size++;
 }
 
 void enlarge(HashMap * map) {
