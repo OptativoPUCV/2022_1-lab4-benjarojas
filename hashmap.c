@@ -52,12 +52,10 @@ void enlarge(HashMap * map) {
 
 HashMap * createMap(long capacity) {
 
-    HashMap* nuevoMapa = NULL;
+    HashMap* nuevoMapa;
 
     nuevoMapa = (HashMap *) malloc(sizeof(HashMap));
     nuevoMapa->capacity = capacity;
-    nuevoMapa->current = NULL;
-    nuevoMapa->buckets;
 
     *nuevoMapa->buckets = (void *) malloc(capacity * sizeof (void *));
 

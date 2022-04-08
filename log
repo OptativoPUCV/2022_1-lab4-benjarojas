@@ -12,3 +12,8 @@ hashmap.c:60:14: error: statement with no effect [-Werror=unused-value]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 3c020e0
+Fri Apr  8 11:44:48 HSP 2022: 
+ hashmap.c | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+ tests:  0|0
+e9f232f
