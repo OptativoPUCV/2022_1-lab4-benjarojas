@@ -52,14 +52,14 @@ void insertMap(HashMap * map, char * key, void * value) {
 
     if(map->buckets[valorHash] != NULL)
     {
-        if(is_equal(map->buckets[valorHash], insertPair))
+        //if(is_equal(map->buckets[valorHash], insertPair))
         {
             return;
-        } else {
+       // } else {
             long pos = valorHash + 1;
             while(1)
             {
-               // if(map->buckets[valorHash] == NULL)
+               if(map->buckets[valorHash] == NULL)
                 {
                     map->buckets[pos] = insertPair;
                     map->size++;
