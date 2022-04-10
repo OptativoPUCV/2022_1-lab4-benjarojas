@@ -44,7 +44,7 @@ void insertMap(HashMap * map, char * key, void * value) {
     long k = valorHash + 1;
     //Pair* insertPair = createPair(key, value);
 
-    if(valorHash >= map->size)
+    if(valorHash > map->size)
     {
         valorHash = valorHash % map->size;
     }
