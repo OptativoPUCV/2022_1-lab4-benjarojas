@@ -41,20 +41,45 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     long valorHash = hash(key, map->capacity);
-    //long k = valorHash + 1;
+    long k = valorHash + 1;
     //Pair* insertPair = createPair(key, value);
 
     if(map->buckets[valorHash] != NULL)
     {
-        if(is_equal(map->buckets[valorHash]->key, key))
+        // Valor repetido
+        if(is_equal(map->buckets[valorHash]->key, key)) return;
+        
+        if(map->buckets[valorHash]->key == NULL)
         {
-            return;
+            // Casilla libre (key invalida)
+            map->current = valorHash;
+            map->buckets[valorHash]->key = key;
+            map->buckets[valorHash]->value = value;
+            map->size++;
+        } else {
+            // Algoritmo de resolución de colisiones
+            while(1)
+            {
+                if(map->buckets[k] == NULL)
+                {
+                    map->buckets[k] = createPair(key, value);
+                    map->size++;
+                    map->current = k;
+                    break;
+                } else {
+                    if(map->buckets[k]->key == NULL)
+                    {
+                        map->buckets[k] = createPair(key, value);
+                        map->size++;
+                        map->current = k;
+                        break;
+                    }
+                }
+                k++;
+            }
         }
-        map->current = valorHash;
-        map->buckets[valorHash]->key = key;
-        map->buckets[valorHash]->value = value;
-        map->size++;
     } else {
+        // Casilla NULL (crear Pair)
         map->buckets[valorHash] = createPair(key, value);
         map->current = valorHash;
         map->size++;
