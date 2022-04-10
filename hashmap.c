@@ -44,6 +44,11 @@ void insertMap(HashMap * map, char * key, void * value) {
     long k = valorHash;
     //Pair* insertPair = createPair(key, value);
 
+    if(valorHash >= map->size)
+    {
+        valorHash = valorHash % map->size;
+    }
+
     if(map->buckets[valorHash] != NULL)
     {
         // Valor repetido
