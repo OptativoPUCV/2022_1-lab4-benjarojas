@@ -168,7 +168,27 @@ Pair * searchMap(HashMap * map,  char * key) {
 
 Pair * firstMap(HashMap * map) {
 
-    return NULL;
+    long pos = 0;
+
+    Pair * pairBusqueda = NULL;
+
+    while(1)
+    {
+        if(pos >= map->capacity) pos = pos % map->capacity;
+
+        if(map->buckets[pos] != NULL)
+        {
+            if(map->buckets[pos]->key != NULL)
+            {
+                pairBusqueda = map->buckets[pos];
+                break;
+            }
+        }
+
+        pos++;   
+    }
+
+    return pairBusqueda;
 }
 
 Pair * nextMap(HashMap * map) {
