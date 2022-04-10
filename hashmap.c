@@ -38,16 +38,9 @@ int is_equal(void* key1, void* key2){
     return 0;
 }
 
-
 void insertMap(HashMap * map, char * key, void * value) {
     long valorHash = hash(key, map->capacity);
     long k = valorHash + 1;
-    //Pair* insertPair = createPair(key, value);
-
-    //if(valorHash > map->size)
-    //{
-        //valorHash = valorHash % map->size;
-    //}
 
     if(map->buckets[valorHash] != NULL)
     {
@@ -115,7 +108,8 @@ void enlarge(HashMap * map) {
         }
     }
     
-    free(map->buckets);
+    //free(map->buckets);
+
     map->buckets = bucketsDouble;
     map->capacity = capacityDouble;
 }
@@ -170,9 +164,11 @@ Pair * searchMap(HashMap * map,  char * key) {
     } else {
         while(1)
         {
+
             if(k >= map->capacity) k = k % map->capacity;
 
             if(map->buckets[k] == NULL) break;
+
             if(is_equal(map->buckets[k]->key, key))
             {
                 resultadoBusqueda = map->buckets[k];
