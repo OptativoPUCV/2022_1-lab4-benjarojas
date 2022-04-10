@@ -69,14 +69,11 @@ void insertMap(HashMap * map, char * key, void * value) {
                 }
                 if(map->buckets[k] != NULL)
                 {
-                    if(map->buckets[k]->key == NULL)
-                    {
                         map->current = k;
                         map->buckets[k]->key = key;
                         map->buckets[k]->value = value;
                         map->size++;
                         break;
-                    }
                 }
                 k++;
             }
