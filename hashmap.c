@@ -5,7 +5,6 @@
 #include <ctype.h>
 #include "hashmap.h"
 
-
 typedef struct HashMap HashMap;
 int enlarge_called=0;
 
@@ -62,6 +61,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
                 if(map->buckets[k] == NULL)
                 {
+                    // Encontramos una casilla nula
                     map->buckets[k] = createPair(key, value);
                     map->size++;
                     map->current = k;
@@ -70,6 +70,7 @@ void insertMap(HashMap * map, char * key, void * value) {
 
                 if((map->buckets[k] != NULL) && (map->buckets[k]->key == NULL))
                 {
+                    // Encontramos una key nula
                     map->current = k;
                     map->buckets[k]->key = key;
                     map->buckets[k]->value = value;
