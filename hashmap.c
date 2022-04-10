@@ -59,31 +59,35 @@ void insertMap(HashMap * map, char * key, void * value) {
             // algoritmo de resolución de colisiones
             while(1)
             {
+                // al intentar resolver una colision, si k es mayor a la capacidad del arreglo
+                // calculamos su modulo respecto a la capacidad
                 if(k >= map->capacity) k = k % map->capacity;
 
+                // encontramos una casilla nula
                 if(map->buckets[k] == NULL)
                 {
-                    // Encontramos una casilla nula
+                    // creamos el par
                     map->buckets[k] = createPair(key, value);
                     map->size++;
                     map->current = k;
                     break;
                 }
 
+                // la casilla no esta nula pero la key es invalida/nula
                 if((map->buckets[k] != NULL) && (map->buckets[k]->key == NULL))
                 {
-                    // Encontramos una key nula
+                    // actualizamos key y value
                     map->current = k;
                     map->buckets[k]->key = key;
                     map->buckets[k]->value = value;
                     map->size++;
                     break;
                 }
-                k++;
+                k++; // siguiente iteracion
             }
         }
     } else {
-        // Casilla NULL (crear Pair)
+        // la casilla entregada por el hash es nula, se crea el par
         map->buckets[valorHash] = createPair(key, value);
         map->current = valorHash;
         map->size++;
@@ -99,22 +103,21 @@ void enlarge(HashMap * map) {
     Pair ** bucketsDouble;
     bucketsDouble = (Pair **) calloc(capacityDouble, sizeof (Pair *));
 
+    // recorremos todo el arreglo map->buckets
     for (long i = 0; i < map->capacity; i++)
     {
-        if(map->buckets[i] != NULL)
+        if(map->buckets[i] != NULL) // si encontramos una posicion no nula
         {
-            if(map->buckets[i]->key != NULL)
+            if(map->buckets[i]->key != NULL) // si su llave no es invalida/nula
             {
-                newHash = hash(map->buckets[i]->key, capacityDouble);
-                bucketsDouble[newHash] = map->buckets[i];
+                newHash = hash(map->buckets[i]->key, capacityDouble); // calculamos su nuevo hash
+                bucketsDouble[newHash] = map->buckets[i]; // insertamos el par
             }
         }
     }
-    
-    //free(map->buckets);
 
-    map->buckets = bucketsDouble;
-    map->capacity = capacityDouble;
+    map->buckets = bucketsDouble; // actualizamos el puntero
+    map->capacity = capacityDouble; // actualizamos la capacidad
 }
 
 
@@ -147,7 +150,7 @@ void eraseMap(HashMap * map,  char * key) {
 
     if(elemento != NULL)
     {
-        elemento->key = NULL;
+        elemento->key = NULL; // hacemos la llave null
         map->size--;
     }
 }
@@ -167,10 +170,10 @@ Pair * searchMap(HashMap * map,  char * key) {
     } else {
         while(1)
         {
-
+            // en caso de que se de una vuelta al arreglo
             if(k >= map->capacity) k = k % map->capacity;
 
-            if(map->buckets[k] == NULL) break;
+            if(map->buckets[k] == NULL) return NULL;
 
             if(is_equal(map->buckets[k]->key, key))
             {
