@@ -172,3 +172,14 @@ Fri Apr  8 18:13:05 HSP 2022:
  tests:  5|4
 total_score: 30/70
 3348bc0
+Sat Apr  9 21:17:26 HSP 2022: 
+ hashmap.c | 37 +++----------------------------------
+ 1 file changed, 3 insertions(+), 34 deletions(-)
+In file included from test.c:4:0:
+hashmap.c: In function 'insertMap':
+hashmap.c:44:10: error: unused variable 'k' [-Werror=unused-variable]
+     long k = valorHash + 1;
+          ^
+cc1.exe: all warnings being treated as errors
+Compilation failed
+bcb77a6

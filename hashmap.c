@@ -40,44 +40,13 @@ int is_equal(void* key1, void* key2){
 
 
 void insertMap(HashMap * map, char * key, void * value) {
-
     long valorHash = hash(key, map->capacity);
-
     long k = valorHash + 1;
-
-    Pair* insertPair = createPair(key, value);
-
-    if(map->buckets[valorHash] != NULL)
-    {
-        if(is_equal(map->buckets[valorHash]->key, key))
-        {
-            while (1)
-            {
-                if(map->buckets[k] != NULL)
-                {
-                    if(map->buckets[k]->key == NULL)
-                    {
-                        map->buckets[k] = insertPair;
-                        map->current = k;
-                        map->size++;
-                        return;
-                    }
-                }
-                if(map->buckets[k] == NULL)
-                {
-                    map->buckets[k] = insertPair;
-                    map->current = k;
-                    map->size++;
-                    return;
-                }
-                k++;
-            }
-            
-        }
-    }
+    //Pair* insertPair = createPair(key, value);
 
     map->current = valorHash;
-    map->buckets[valorHash] = insertPair;
+    strcpy(map->buckets[valorHash]->key, key);
+    map->buckets[valorHash]->value = value;
     map->size++;
 }
 
