@@ -115,6 +115,7 @@ void enlarge(HashMap * map) {
         }
     }
     
+    free(map->buckets);
     map->buckets = bucketsDouble;
     map->capacity = capacityDouble;
 }
