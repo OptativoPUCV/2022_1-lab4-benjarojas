@@ -71,7 +71,8 @@ void insertMap(HashMap * map, char * key, void * value) {
                 {
                     if(map->buckets[k]->key == NULL)
                     {
-                        map->buckets[k] = createPair(key, value);
+                        map->buckets[k]->key = key;
+                        map->buckets[k]->value = value;
                         map->size++;
                         map->current = k;
                         break;
