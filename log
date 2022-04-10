@@ -304,3 +304,9 @@ hashmap.c:131:10: error: unused variable 'valorHash' [-Werror=unused-variable]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 bbc3235
+Sat Apr  9 22:57:26 HSP 2022: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  11|2
+total_score: 50/70
+d750d36

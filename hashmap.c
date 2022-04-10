@@ -128,7 +128,7 @@ HashMap * createMap(long capacity) {
 
 void eraseMap(HashMap * map,  char * key) {    
 
-    long valorHash = hash(key, map->capacity);
+    //long valorHash = hash(key, map->capacity);
 
     Pair* elemento;
 
