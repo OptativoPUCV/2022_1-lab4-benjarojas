@@ -50,8 +50,11 @@ void insertMap(HashMap * map, char * key, void * value) {
         map->buckets[valorHash]->key = key;
         map->buckets[valorHash]->value = value;
         map->size++;
+    } else {
+        map->buckets[valorHash] = createPair(key, value);
+        map->current = valorHash;
+        map->size++;
     }
-    
 }
 
 void enlarge(HashMap * map) {
