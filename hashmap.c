@@ -65,10 +65,7 @@ void insertMap(HashMap * map, char * key, void * value) {
             // Algoritmo de resolución de colisiones
             while(1)
             {
-                if(k >= map->capacity)
-                {
-                    k = k % map->capacity;
-                }
+                if(k >= map->capacity) k = k % map->capacity;
 
                 if(map->buckets[k] == NULL)
                 {
@@ -77,15 +74,14 @@ void insertMap(HashMap * map, char * key, void * value) {
                     map->current = k;
                     break;
                 }
-                if(map->buckets[k] != NULL)
+
+                if((map->buckets[k] != NULL) && (map->buckets[k]->key == NULL))
                 {
-                    if(map->buckets[k]->key == NULL){
-                        map->current = k;
-                        map->buckets[k]->key = key;
-                        map->buckets[k]->value = value;
-                        map->size++;
-                        break;
-                    }
+                    map->current = k;
+                    map->buckets[k]->key = key;
+                    map->buckets[k]->value = value;
+                    map->size++;
+                    break;
                 }
                 k++;
             }
