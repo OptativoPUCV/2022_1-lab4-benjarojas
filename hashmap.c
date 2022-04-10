@@ -110,7 +110,7 @@ void enlarge(HashMap * map) {
             if(map->buckets[i]->key != NULL)
             {
                 newHash = hash(map->buckets[i]->key, capacityDouble);
-                bucketsDouble[newHash] = createPair(map->buckets[i]->key, map->buckets[i]->value);
+                bucketsDouble[newHash] = map->buckets[i];
             }
         }
     }
