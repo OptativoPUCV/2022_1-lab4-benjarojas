@@ -128,7 +128,17 @@ HashMap * createMap(long capacity) {
 
 void eraseMap(HashMap * map,  char * key) {    
 
+    long valorHash = hash(key, map->capacity);
 
+    Pair* elemento;
+
+    elemento = searchMap(map, key);
+
+    if(elemento != NULL)
+    {
+        elemento->key = NULL;
+        map->size--;
+    }
 }
 
 Pair * searchMap(HashMap * map,  char * key) {   
