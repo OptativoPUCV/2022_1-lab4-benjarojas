@@ -97,7 +97,25 @@ void insertMap(HashMap * map, char * key, void * value) {
 void enlarge(HashMap * map) {
     enlarge_called = 1; //no borrar (testing purposes)
 
+    long capacityDouble = map->capacity * 2;
+    long newHash;
 
+    Pair ** bucketsDouble;
+    bucketsDouble = (Pair **) calloc(capacityDouble, sizeof (Pair *));
+
+    for (long i = 0; i < map->capacity; i++)
+    {
+        if(map->buckets[i] != NULL)
+        {
+            if(map->buckets[i]->key != NULL)
+            {
+                newHash = hash(map->buckets[i]->key, capacityDouble);
+                bucketsDouble[newHash] = createPair(map->buckets[i]->key, map->buckets[i]->value);
+            }
+        }
+    }
+
+    map -> capacity *= 2;
 }
 
 
