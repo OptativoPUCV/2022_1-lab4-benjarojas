@@ -200,7 +200,7 @@ Pair * nextMap(HashMap * map) {
 
     while(1)
     {
-        if(pos >= map->capacity) pos = pos % map->capacity;
+        if(pos >= map->capacity) return NULL;
 
         if(map->buckets[pos] != NULL)
         {
