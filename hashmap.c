@@ -65,6 +65,11 @@ void insertMap(HashMap * map, char * key, void * value) {
             // Algoritmo de resolución de colisiones
             while(1)
             {
+                if(k > map->capacity)
+                {
+                    k = k % map->capacity;
+                }
+
                 if(map->buckets[k] == NULL)
                 {
                     map->buckets[k] = createPair(key, value);
