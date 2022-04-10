@@ -181,6 +181,7 @@ Pair * firstMap(HashMap * map) {
             if(map->buckets[pos]->key != NULL)
             {
                 pairBusqueda = map->buckets[pos];
+                map->current = pos;
                 break;
             }
         }
