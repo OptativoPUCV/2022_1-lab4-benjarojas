@@ -44,10 +44,14 @@ void insertMap(HashMap * map, char * key, void * value) {
     //long k = valorHash + 1;
     //Pair* insertPair = createPair(key, value);
 
-    map->current = valorHash;
-    strcpy(map->buckets[valorHash]->key, key);
-    map->buckets[valorHash]->value = value;
-    map->size++;
+    if(map->buckets[valorHash] == NULL)
+    {
+        map->current = valorHash;
+        strcpy(map->buckets[valorHash]->key, key);
+        map->buckets[valorHash]->value = value;
+        map->size++;
+    }
+    
 }
 
 void enlarge(HashMap * map) {
