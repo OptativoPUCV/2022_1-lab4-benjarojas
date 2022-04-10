@@ -183,3 +183,8 @@ hashmap.c:44:10: error: unused variable 'k' [-Werror=unused-variable]
 cc1.exe: all warnings being treated as errors
 Compilation failed
 bcb77a6
+Sat Apr  9 21:17:34 HSP 2022: 
+ hashmap.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+ tests:  0|0
+7d58632
