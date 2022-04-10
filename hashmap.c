@@ -144,8 +144,6 @@ HashMap * createMap(long capacity) {
 
 void eraseMap(HashMap * map,  char * key) {    
 
-    //long valorHash = hash(key, map->capacity);
-
     Pair* elemento;
 
     elemento = searchMap(map, key);
@@ -172,6 +170,8 @@ Pair * searchMap(HashMap * map,  char * key) {
     } else {
         while(1)
         {
+            if(k >= map->capacity) k = k % map->capacity;
+
             if(map->buckets[k] == NULL) break;
             if(is_equal(map->buckets[k]->key, key))
             {
