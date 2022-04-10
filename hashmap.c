@@ -41,7 +41,7 @@ int is_equal(void* key1, void* key2){
 
 void insertMap(HashMap * map, char * key, void * value) {
     long valorHash = hash(key, map->capacity);
-    long k = valorHash;
+    long k = valorHash + 1;
     //Pair* insertPair = createPair(key, value);
 
     if(valorHash >= map->size)
